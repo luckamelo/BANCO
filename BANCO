@@ -1,0 +1,20 @@
+class Banco:
+    def __init__(self):
+        self.clientes = {}
+
+    def adicionar_cliente(self, numero_conta, nome, saldo):
+        self.clientes[numero_conta] = {'nome': nome, 'saldo': saldo}
+
+    def buscar_cliente(self, numero_conta):
+        return self.clientes.get(numero_conta, "Conta não encontrada")
+
+# Criando um banco 
+banco = Banco()
+banco.adicionar_cliente(12345, "João Silva", 5000.00)
+banco.adicionar_cliente(67890, "Maria Souza", 10000.50)
+banco.adicionar_cliente(11223, "Carlos Lima", 7500.25)
+
+# Buscando clientes usando tabela hash 
+print(banco.buscar_cliente(12345))  
+print(banco.buscar_cliente(67890))  
+print(banco.buscar_cliente(99999))  
